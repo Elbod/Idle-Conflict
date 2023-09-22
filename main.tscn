@@ -1,0 +1,517 @@
+[gd_scene load_steps=18 format=3 uid="uid://bmyvijhqgkp4l"]
+
+[ext_resource type="Texture2D" uid="uid://bqvyrkdkxspwi" path="res://assets/background/background.png" id="1_f1xnp"]
+[ext_resource type="Script" path="res://main.gd" id="2_l62ut"]
+[ext_resource type="Script" path="res://Table.gd" id="3_ceyvi"]
+[ext_resource type="Texture2D" uid="uid://df2nicwfhmn3k" path="res://assets/portraits/Cesaire.png" id="3_et4bq"]
+[ext_resource type="Texture2D" uid="uid://pe7tk67cowc0" path="res://assets/portraits/Mystery.png" id="3_oowfx"]
+[ext_resource type="Script" path="res://Mystery.gd" id="4_xkfuq"]
+[ext_resource type="Texture2D" uid="uid://bxqds48xqqmhl" path="res://assets/background/slot.png" id="5_hwc4e"]
+[ext_resource type="Texture2D" uid="uid://byxcfi07eoi1n" path="res://assets/portraits/Commander Hans.png" id="6_8xoun"]
+[ext_resource type="Texture2D" uid="uid://bfctshlrpuj6y" path="res://assets/background/slotlocked.png" id="6_ey8n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eii4w"]
+size = Vector2(516, 388)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4sk3"]
+font_size = 19
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_757fm"]
+line_spacing = 9.825
+font_size = 19
+font_color = Color(1, 0.431373, 0.431373, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_moqfy"]
+line_spacing = 1.0
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hc5lg"]
+line_spacing = 1.0
+font_size = 26
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3k68"]
+font_size = 15
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxhpn"]
+font_size = 15
+font_color = Color(0.839216, 0.721569, 0.956863, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bovxp"]
+line_spacing = -0.815
+font_size = 11
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Background" type="Sprite2D"]
+position = Vector2(640, 360)
+texture = ExtResource("1_f1xnp")
+script = ExtResource("2_l62ut")
+
+[node name="Table" type="Area2D" parent="."]
+script = ExtResource("3_ceyvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2(-94, 164)
+shape = SubResource("RectangleShape2D_eii4w")
+
+[node name="bslot1" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(-97.5, 40.5)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="bslot2" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(-9.5, 40.5)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="bslot3" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(78.5, 40.5)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="bslot4" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(-98, 120)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="bslot5" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(-10, 120)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="bslot6" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(78, 120)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
+[node name="Free_encounter" type="Button" parent="."]
+offset_left = -209.0
+offset_top = 68.0
+offset_right = -7.0
+offset_bottom = 114.0
+text = "Free Encounter"
+
+[node name="Mystery" type="Sprite2D" parent="."]
+position = Vector2(-128, -223)
+texture = ExtResource("3_oowfx")
+script = ExtResource("4_xkfuq")
+
+[node name="test" type="Button" parent="Mystery"]
+anchors_preset = -1
+anchor_right = 1.386
+anchor_bottom = 0.54
+offset_left = 678.0
+offset_top = 507.0
+offset_right = 606.4
+offset_bottom = 492.0
+text = "test"
+
+[node name="Seconds_timer" type="Timer" parent="."]
+
+[node name="Countdown_hiring" type="Label" parent="."]
+offset_left = -297.0
+offset_top = -262.0
+offset_right = -257.0
+offset_bottom = -236.0
+horizontal_alignment = 1
+
+[node name="Update" type="Button" parent="."]
+offset_left = -320.0
+offset_top = -231.0
+offset_right = -199.0
+offset_bottom = -177.0
+tooltip_text = "Click to reduce the hiring cooldown by a set amount."
+text = "Search
+(-1 Seconds)"
+
+[node name="Recruit_hire" type="Button" parent="."]
+visible = false
+offset_left = -175.0
+offset_top = -170.0
+offset_right = -79.0
+offset_bottom = -128.0
+tooltip_text = "Hire unit for 100 gold."
+theme_override_font_sizes/font_size = 12
+text = "Hire
+(100 gold)"
+
+[node name="Recruit_name" type="Label" parent="."]
+offset_left = -70.0
+offset_top = -270.0
+offset_right = 60.0
+offset_bottom = -240.0
+label_settings = SubResource("LabelSettings_l4sk3")
+
+[node name="Recruit_role" type="Label" parent="."]
+offset_left = -70.0
+offset_top = -248.0
+offset_right = 60.0
+offset_bottom = -211.0
+label_settings = SubResource("LabelSettings_757fm")
+
+[node name="Recruit_stats1" type="Label" parent="."]
+offset_left = -46.0
+offset_top = -216.0
+offset_right = 95.0
+offset_bottom = -138.0
+label_settings = SubResource("LabelSettings_moqfy")
+
+[node name="Recruit_stats2" type="Label" parent="."]
+offset_left = 47.0
+offset_top = -216.0
+offset_right = 188.0
+offset_bottom = -138.0
+label_settings = SubResource("LabelSettings_moqfy")
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 360.0
+offset_top = -280.0
+offset_right = 490.0
+offset_bottom = -206.0
+text = "45 
+Gold"
+label_settings = SubResource("LabelSettings_hc5lg")
+horizontal_alignment = 1
+
+[node name="Slot1" type="Sprite2D" parent="."]
+position = Vector2(-500, -229)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("5_hwc4e")
+
+[node name="Name" type="Label" parent="Slot1"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot1"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot1"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot1"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot1"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[node name="Slot2" type="Sprite2D" parent="."]
+position = Vector2(-500, -136)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_ey8n3")
+
+[node name="Name" type="Label" parent="Slot2"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot2"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot2"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot2"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot2"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[node name="Slot3" type="Sprite2D" parent="."]
+position = Vector2(-500, -43)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_ey8n3")
+
+[node name="Name" type="Label" parent="Slot3"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot3"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot3"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot3"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot3"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[node name="Slot4" type="Sprite2D" parent="."]
+position = Vector2(-500, 50)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_ey8n3")
+
+[node name="Name" type="Label" parent="Slot4"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot4"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot4"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot4"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot4"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[node name="Slot5" type="Sprite2D" parent="."]
+position = Vector2(-500, 143)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_ey8n3")
+
+[node name="Name" type="Label" parent="Slot5"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot5"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot5"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot5"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot5"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[node name="Slot6" type="Sprite2D" parent="."]
+position = Vector2(-500, 236)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_ey8n3")
+
+[node name="Name" type="Label" parent="Slot6"]
+visible = false
+offset_left = -55.4348
+offset_top = -45.6522
+offset_right = 110.565
+offset_bottom = -15.6522
+text = "Commander Hans"
+label_settings = SubResource("LabelSettings_y3k68")
+
+[node name="Role" type="Label" parent="Slot6"]
+visible = false
+offset_left = -54.7983
+offset_top = -30.7423
+offset_right = 111.202
+offset_bottom = -0.74231
+text = "Leadership role"
+label_settings = SubResource("LabelSettings_lxhpn")
+
+[node name="Stats1" type="Label" parent="Slot6"]
+visible = false
+offset_left = -33.0
+offset_top = -8.0
+offset_right = 143.0
+offset_bottom = 40.0
+text = "Atk: 25
+Mag: 10
+hp: 14"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Stats2" type="Label" parent="Slot6"]
+visible = false
+offset_left = 52.1739
+offset_top = -7.60867
+offset_right = 218.174
+offset_bottom = 40.3913
+text = "Def: 25
+spi: 10
+dodge: 5"
+label_settings = SubResource("LabelSettings_bovxp")
+uppercase = true
+
+[node name="Avatar" type="Sprite2D" parent="Slot6"]
+visible = false
+position = Vector2(-100.448, -0.447666)
+scale = Vector2(0.835041, 0.835041)
+texture = ExtResource("6_8xoun")
+
+[connection signal="button_down" from="Free_encounter" to="." method="_on_free_encounter_button_down"]
+[connection signal="button_down" from="Mystery/test" to="Mystery" method="_on_test_button_down"]
+[connection signal="timeout" from="Seconds_timer" to="." method="_on_Seconds_timer_timeout"]
+[connection signal="button_down" from="Update" to="." method="_on_update_button_down"]
+[connection signal="button_down" from="Recruit_hire" to="." method="_on_recruit_hire_button_down"]
