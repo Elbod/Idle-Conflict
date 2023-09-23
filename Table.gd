@@ -133,9 +133,23 @@ func loadplayerslots():
 			node.texture = png
 			node.visible = true
 			turnorder.append(playerindex[number])
-			print(turnorder)
 		number += 1
-	number = 7
-	
+	while number > 6 and number < 8:
+		playerindex[number].name = "Test boss"
+		playerindex[number].role = "Beast"
+		playerindex[number].atk = 20
+		playerindex[number].def = 5
+		playerindex[number].mag = 20
+		playerindex[number].spi = 4
+		playerindex[number].dodge = 0
+		playerindex[number].hp = 200
+		var node = get_node("CollisionShape2D/bslot" + str(number))
+		var png = load("res://assets/enemies/Golem.png")
+		node.texture = png
+		node.visible = true
+		turnorder.append(playerindex[number])
+		number += 1
+	print(turnorder)
+
 func tableready():
 	pass

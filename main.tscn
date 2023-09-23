@@ -103,6 +103,12 @@ position = Vector2(78, 120)
 scale = Vector2(0.73, 0.73)
 texture = ExtResource("3_et4bq")
 
+[node name="bslot7" type="Sprite2D" parent="Table/CollisionShape2D"]
+visible = false
+position = Vector2(-10, -128)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_et4bq")
+
 [node name="Free_encounter" type="Button" parent="."]
 offset_left = -209.0
 offset_top = 68.0
